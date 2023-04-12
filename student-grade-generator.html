@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Grade Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        text-align: center;
+        color: #004d99;
+      }
+
+      form {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      input[type="number"] {
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #645a5a;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #004d99;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #003366;
+      }
+
+      #output {
+        margin-top: 30px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        color: #004d99;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Student Grade Calculator</h1>
+    <form>
+      <label for="marks">Enter your marks between 0 and 100:</label>
+      <br />
+      <input type="number" id="marks" name="marks" min="0" max="100" required />
+      <br />
+      <button type="submit">Calculate Grade</button>
+    </form>
+    <p id="output"></p>
+    <script>
+      const form = document.querySelector("form");
+      const output = document.querySelector("#output");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const marks = parseInt(document.querySelector("#marks").value);
+        let grade;
+        if (marks > 79) {
+          grade = "A";
+        } else if (marks >= 60 && marks <= 79) {
+          grade = "B";
+        } else if (marks >= 50 && marks <= 59) {
+          grade = "C";
+        } else if (marks >= 40 && marks <= 49) {
+          grade = "D";
+        } else {
+          grade = "E";
+        }
+        output.textContent = `Your grade is: ${grade}`;
+      });
+    </script>
+  </body>
+</html>
